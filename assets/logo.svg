@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="English Tenses Academy logo">
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4F8CFF" />
+      <stop offset="100%" stop-color="#6EC6FF" />
+    </linearGradient>
+  </defs>
+
+  <rect x="32" y="32" width="448" height="448" rx="120" fill="#0D1726" stroke="url(#logoGradient)" stroke-width="16" />
+  <rect x="96" y="96" width="320" height="320" rx="92" fill="url(#logoGradient)" opacity="0.95" />
+  <circle cx="256" cy="256" r="124" fill="#081320" />
+
+  <path d="M188 196h136" stroke="#6EC6FF" stroke-width="20" stroke-linecap="round" />
+  <path d="M188 256h104" stroke="#6EC6FF" stroke-width="20" stroke-linecap="round" />
+  <path d="M188 316h136" stroke="#6EC6FF" stroke-width="20" stroke-linecap="round" />
+  <path d="M316 220l28 28-28 28" stroke="#FFFFFF" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" />
+</svg>

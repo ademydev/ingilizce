@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Tenses Academy</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="background">
+        <div class="blur blur1"></div>
+        <div class="blur blur2"></div>
+    </div>
+
+    <header>
+        <div class="logo">
+            <img src="assets/logo.svg" alt="Logo">
+            <h1>English Tenses Academy</h1>
+        </div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="index.html#learn">Learn</a>
+        </nav>
+    </header>
+
+    <main class="detail-page">
+        <section class="detail-hero">
+            <p class="detail-eyebrow" id="detailTag">Tense</p>
+            <h2 id="detailTitle">Choose a tense</h2>
+            <p id="detailIntro">Select a tense card from the home page to see its explanation.</p>
+
+            <div class="detail-actions">
+                <a href="index.html" class="btn-secondary">Back to Home</a>
+                <a href="#examples" class="btn-primary">See Examples</a>
+            </div>
+        </section>
+
+        <section class="detail-grid">
+            <div class="detail-card">
+                <h3>Structure</h3>
+                <div id="structureBody" class="structure-list"></div>
+            </div>
+
+            <div class="detail-card">
+                <h3>When to Use It</h3>
+                <div class="usage-block">
+                    <h4>English</h4>
+                    <p id="usageText"></p>
+                </div>
+                <div class="usage-block">
+                    <h4>Türkçe</h4>
+                    <p id="usageTextTr"></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="detail-card detail-examples" id="examples">
+            <h3>Examples</h3>
+            <ul id="exampleList" class="example-list"></ul>
+        </section>
+
+        <section class="detail-card">
+            <h3>Quick Tip</h3>
+            <div class="usage-block">
+                <h4>English</h4>
+                <p id="tipText"></p>
+            </div>
+            <div class="usage-block">
+                <h4>Türkçe</h4>
+                <p id="tipTextTr"></p>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
