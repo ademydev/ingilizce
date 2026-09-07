@@ -561,6 +561,30 @@ const renderConceptAnimation = (tense) => {
 
 };
 
+const restartConceptAnimation = () => {
+
+    const visualization = document.getElementById('conceptAnimation');
+
+    if (!visualization) return;
+
+    const animatedElements = visualization.querySelectorAll('.concept-flow, .concept-point, .concept-object, .concept-checkpoint, .concept-arrow, .concept-track');
+
+    animatedElements.forEach((element) => {
+
+        element.style.animation = 'none';
+
+    });
+
+    void visualization.offsetWidth;
+
+    animatedElements.forEach((element) => {
+
+        element.style.removeProperty('animation');
+
+    });
+
+};
+
 const updateProgressUI = (completedTenses = loadCompletedTenses()) => {
 
     const tenseKeys = Object.keys(TENSE_DATA);
@@ -795,7 +819,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const conceptReplay = document.getElementById('conceptReplay');
 
-        if (conceptReplay) conceptReplay.addEventListener('click', () => renderConceptAnimation(tense));
+        if (conceptReplay) conceptReplay.addEventListener('click', restartConceptAnimation);
 
         if (structureBody) {
 
