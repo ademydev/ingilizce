@@ -7,6 +7,11 @@ const TENSE_DATA = {
             label: 'Repeated actions / habits',
             description: 'The action happens regularly around the present.'
         },
+        animation: {
+            type: 'habit-loop',
+            label: 'Repeated habit',
+            description: 'A calm repeating rhythm shows an action that happens regularly.'
+        },
         intro: 'Use the simple present for habits, routines, facts and general truths.',
         usageEn: 'We use the simple present to describe regular actions, facts, schedules, and things that are always true.',
         usageTr: 'Bu zaman, düzenli alışkanlıkları, genel gerçekleri, programları ve her zaman doğru olan durumları anlatmak için kullanılır.',
@@ -38,6 +43,11 @@ const TENSE_DATA = {
             type: 'ongoing-now',
             label: 'Action happening now',
             description: 'The action is in progress at this moment.'
+        },
+        animation: {
+            type: 'active-now',
+            label: 'Happening right now',
+            description: 'The moving pulse stays active to show an action in progress.'
         },
         intro: 'Use the present continuous for actions happening now or around now.',
         usageEn: 'We use it for temporary actions, current situations, and plans arranged for the near future.',
@@ -71,6 +81,11 @@ const TENSE_DATA = {
             label: 'Past action connected to now',
             description: 'A past action has a result or connection in the present.'
         },
+        animation: {
+            type: 'past-result',
+            label: 'Past action, present result',
+            description: 'A completed action sends a visible connection toward its present result.'
+        },
         intro: 'Use the present perfect to connect the past to the present.',
         usageEn: 'We use it for experiences, unfinished time periods, and actions that happened at an unknown time before now.',
         usageTr: 'Bu zaman, geçmişte yaşanmış deneyimleri, henüz bitmemiş zaman dilimlerini ve şu ana kadar olan bir zaman aralığında gerçekleşmiş olayları anlatmak için kullanılır.',
@@ -102,6 +117,11 @@ const TENSE_DATA = {
             type: 'duration-to-now',
             label: 'Started in the past and continues now',
             description: 'The action began in the past and has continued until now.'
+        },
+        animation: {
+            type: 'flow-to-now',
+            label: 'Still continuing',
+            description: 'A flowing duration starts earlier and remains connected to now.'
         },
         intro: 'Use this tense to show an action that started in the past and is still continuing.',
         usageEn: 'We use it to emphasize duration, repetition, or the cause of a present result.',
@@ -135,6 +155,11 @@ const TENSE_DATA = {
             label: 'Finished action',
             description: 'The action happened and ended at a point in the past.'
         },
+        animation: {
+            type: 'finished-action',
+            label: 'Finished action',
+            description: 'The small sequence plays once and settles into a completed state.'
+        },
         intro: 'Use the simple past for finished actions in the past.',
         usageEn: 'We use it for completed actions, past routines, and situations that ended in the past.',
         usageTr: 'Bu zaman, geçmişte tamamlanmış olayları, geçmişteki alışkanlıkları ve sona ermiş durumları anlatmak için kullanılır.',
@@ -165,6 +190,11 @@ const TENSE_DATA = {
             type: 'past-ongoing',
             label: 'Action in progress in the past',
             description: 'The action was continuing around a particular past moment.'
+        },
+        animation: {
+            type: 'past-activity',
+            label: 'In progress at a past moment',
+            description: 'The activity keeps moving inside a softly marked past context.'
         },
         intro: 'Use the past continuous for actions that were happening at a specific moment in the past.',
         usageEn: 'We use it when an action was in progress and another action interrupted it.',
@@ -197,6 +227,11 @@ const TENSE_DATA = {
             label: 'Before another past event',
             description: 'One past action happened earlier than another past event.'
         },
+        animation: {
+            type: 'past-sequence',
+            label: 'First this, then that',
+            description: 'Two past events appear in order to show which happened first.'
+        },
         intro: 'Use the past perfect to show that one past action happened before another past action.',
         usageEn: 'We use it to explain sequence in the past and show clear cause and effect.',
         usageTr: 'Bu zaman, geçmişte iki olay arasında öncelik ilişkisi kurmak ve neden-sonuç ilişkisini net göstermek için kullanılır.',
@@ -227,6 +262,11 @@ const TENSE_DATA = {
             type: 'duration-before-past',
             label: 'Duration before another past event',
             description: 'The action continued for a period before another past event.'
+        },
+        animation: {
+            type: 'past-duration',
+            label: 'Continuing before another event',
+            description: 'A moving duration runs before a second past event appears.'
         },
         intro: 'Use this tense to show a past action that had been continuing before another past event.',
         usageEn: 'We use it to emphasize the duration of an action before another point in the past.',
@@ -259,6 +299,11 @@ const TENSE_DATA = {
             label: 'Future action',
             description: 'The action takes place after the present moment.'
         },
+        animation: {
+            type: 'forward-action',
+            label: 'Future action',
+            description: 'A glowing marker travels forward toward an upcoming point.'
+        },
         intro: 'Use the simple future for decisions, promises, predictions, and future facts.',
         usageEn: 'We use it to talk about future plans, predictions and spontaneous decisions.',
         usageTr: 'Bu zaman, gelecek planlarını, tahminleri ve ani kararları anlatmak için kullanılır.',
@@ -289,6 +334,11 @@ const TENSE_DATA = {
             type: 'future-ongoing',
             label: 'Action in progress in the future',
             description: 'The action will be continuing around a specific future moment.'
+        },
+        animation: {
+            type: 'future-activity',
+            label: 'In progress at a future moment',
+            description: 'The future checkpoint arrives while the activity is still moving.'
         },
         intro: 'Use the future continuous to describe an action that will be in progress at a specific time in the future.',
         usageEn: 'We use it for plans, arrangements, and actions that will be happening at a future moment.',
@@ -321,6 +371,11 @@ const TENSE_DATA = {
             label: 'Completed before a future point',
             description: 'The action will be complete before a later future moment.'
         },
+        animation: {
+            type: 'future-completion',
+            label: 'Finished before the checkpoint',
+            description: 'The action completes first, then the future checkpoint appears.'
+        },
         intro: 'Use the future perfect to show that an action will be complete before a certain future time.',
         usageEn: 'We use it to talk about completed actions by a future point.',
         usageTr: 'Bu zaman, belirli bir gelecekte bir olayın tamamlanmış olacağını anlatmak için kullanılır.',
@@ -351,6 +406,11 @@ const TENSE_DATA = {
             type: 'duration-to-future',
             label: 'Duration until a future point',
             description: 'The action will continue for a duration up to a future moment.'
+        },
+        animation: {
+            type: 'future-duration',
+            label: 'Continuing until the checkpoint',
+            description: 'A visible duration carries the activity forward to a future point.'
         },
         intro: 'Use this tense to show how long an action will have been happening by a future point.',
         usageEn: 'We use it to emphasize duration before another time in the future.',
@@ -465,6 +525,39 @@ const renderTenseTimeline = (tense) => {
     `;
 
     if (description) description.textContent = timeline.description;
+
+};
+
+const renderConceptAnimation = (tense) => {
+
+    const animation = tense.animation;
+    const visualization = document.getElementById('conceptAnimation');
+    const description = document.getElementById('conceptDescription');
+
+    if (!animation || !visualization) return;
+
+    visualization.className = `concept-animation concept-${animation.type}`;
+    visualization.setAttribute('aria-label', `${animation.label}. ${animation.description}`);
+    visualization.innerHTML = `
+        <div class="concept-stage" aria-hidden="true">
+            <span class="concept-context concept-context-past">Past</span>
+            <span class="concept-context concept-context-now">Now</span>
+            <span class="concept-context concept-context-future">Future</span>
+            <div class="concept-track"></div>
+            <div class="concept-flow"></div>
+            <div class="concept-point concept-point-one"><span></span></div>
+            <div class="concept-point concept-point-two"><span></span></div>
+            <div class="concept-object"><span></span></div>
+            <div class="concept-checkpoint"><span>✓</span></div>
+            <div class="concept-arrow">→</div>
+        </div>
+        <div class="concept-key">
+            <span class="concept-key-mark" aria-hidden="true">●</span>
+            <span>${animation.label}</span>
+        </div>
+    `;
+
+    if (description) description.textContent = animation.description;
 
 };
 
@@ -698,6 +791,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (detailTitle) detailTitle.textContent = tense.title;
         if (detailIntro) detailIntro.textContent = tense.intro;
         renderTenseTimeline(tense);
+        renderConceptAnimation(tense);
+
+        const conceptReplay = document.getElementById('conceptReplay');
+
+        if (conceptReplay) conceptReplay.addEventListener('click', () => renderConceptAnimation(tense));
+
         if (structureBody) {
 
             structureBody.innerHTML = tense.structure.map((item) => `
