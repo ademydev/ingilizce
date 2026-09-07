@@ -71,22 +71,51 @@
         </section>
 
         <section class="detail-grid">
-            <div class="detail-card">
-                <h3>Structure</h3>
+            <section class="detail-card learning-card structure-card" aria-labelledby="structureTitle">
+                <div class="learning-card-heading">
+                    <div>
+                        <p class="learning-eyebrow">Grammar formula</p>
+                        <h3 id="structureTitle">Structure</h3>
+                    </div>
+                    <span class="learning-heading-mark" aria-hidden="true">+</span>
+                </div>
+                <p class="learning-subtitle">Build the sentence step by step.</p>
                 <div id="structureBody" class="structure-list"></div>
-            </div>
+            </section>
 
-            <div class="detail-card">
-                <h3>When to Use It</h3>
-                <div class="usage-block">
-                    <h4>English</h4>
-                    <p id="usageText"></p>
+            <section class="detail-card learning-card usage-card" aria-labelledby="usageTitle">
+                <div class="learning-card-heading">
+                    <div>
+                        <p class="learning-eyebrow">When to use</p>
+                        <h3 id="usageTitle">When to Use It</h3>
+                    </div>
+                    <span class="learning-heading-mark" aria-hidden="true">?</span>
                 </div>
-                <div class="usage-block">
-                    <h4>Türkçe</h4>
-                    <p id="usageTextTr"></p>
+                <p class="learning-subtitle">Recognize when this tense is the natural choice.</p>
+                <div class="core-idea">
+                    <span class="core-idea-icon" aria-hidden="true">✦</span>
+                    <div>
+                        <span class="usage-label">Core idea</span>
+                        <p id="coreIdeaText"></p>
+                    </div>
                 </div>
-            </div>
+                <div class="usage-layers">
+                    <div class="usage-block usage-layer usage-layer-en">
+                        <div class="usage-layer-heading">
+                            <span class="language-badge" aria-hidden="true">EN</span>
+                            <h4>English explanation</h4>
+                        </div>
+                        <p id="usageText"></p>
+                    </div>
+                    <div class="usage-block usage-layer usage-layer-tr">
+                        <div class="usage-layer-heading">
+                            <span class="language-badge" aria-hidden="true">TR</span>
+                            <h4>Türkçe açıklama</h4>
+                        </div>
+                        <p id="usageTextTr"></p>
+                    </div>
+                </div>
+            </section>
         </section>
 
         <section class="detail-card detail-examples" id="examples">

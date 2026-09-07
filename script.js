@@ -528,6 +528,42 @@ const renderTenseTimeline = (tense) => {
 
 };
 
+const escapeHtml = (value) => String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+
+const renderFormula = (formula) => formula
+    .split(/(\s+\+\s+|\?)/)
+    .filter((part) => part.trim())
+    .map((part) => {
+        const trimmedPart = part.trim();
+        const isConnector = trimmedPart === '+' || trimmedPart === '?';
+        return isConnector
+            ? `<span class="formula-connector" aria-hidden="true">${trimmedPart}</span>`
+            : `<span class="formula-token">${escapeHtml(trimmedPart)}</span>`;
+    })
+    .join('');
+
+const renderStructure = (structure) => structure.map((item, index) => {
+    const label = item.label.toLowerCase();
+    const type = label.includes('olumlu') ? 'affirmative' : label.includes('olumsuz') ? 'negative' : label.includes('soru') ? 'question' : 'variation';
+    const symbol = type === 'affirmative' ? '✓' : type === 'negative' ? '−' : type === 'question' ? '?' : '•';
+
+    return `
+        <article class="structure-item structure-${type}">
+            <div class="structure-item-heading">
+                <span class="structure-symbol" aria-hidden="true">${symbol}</span>
+                <span class="structure-label">${escapeHtml(item.label)}</span>
+                <span class="structure-index" aria-hidden="true">${String(index + 1).padStart(2, '0')}</span>
+            </div>
+            <div class="structure-text" aria-label="${escapeHtml(item.text)}">${renderFormula(item.text)}</div>
+        </article>
+    `;
+}).join('');
+
 const renderConceptAnimation = (tense) => {
 
     const animation = tense.animation;
@@ -1018,6 +1054,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const detailTitle = document.getElementById('detailTitle');
         const detailIntro = document.getElementById('detailIntro');
         const structureBody = document.getElementById('structureBody');
+        const coreIdeaText = document.getElementById('coreIdeaText');
         const usageText = document.getElementById('usageText');
         const usageTextTr = document.getElementById('usageTextTr');
         const exampleList = document.getElementById('exampleList');
@@ -1036,15 +1073,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (structureBody) {
 
-            structureBody.innerHTML = tense.structure.map((item) => `
-                <div class="structure-item">
-                    <span class="structure-label">${item.label}</span>
-                    <div class="structure-text">${item.text}</div>
-                </div>
-            `).join('');
+            structureBody.innerHTML = renderStructure(tense.structure || []);
 
         }
 
+        if (coreIdeaText) coreIdeaText.textContent = tense.timeline?.label || tense.intro;
         if (usageText) usageText.textContent = tense.usageEn;
         if (usageTextTr) usageTextTr.textContent = tense.usageTr;
         if (tipText) tipText.textContent = tense.tipEn;
