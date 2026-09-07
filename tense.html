@@ -38,7 +38,22 @@
             <div class="detail-actions">
                 <a href="index.html" class="btn-secondary">Back to Home</a>
                 <a href="#examples" class="btn-primary">See Examples</a>
+                <button type="button" class="completion-button btn-secondary" id="completionButton" aria-pressed="false">
+                    Mark as Completed
+                </button>
             </div>
+        </section>
+
+        <section class="detail-card tense-timeline-card" aria-labelledby="timelineTitle">
+            <div class="timeline-card-heading">
+                <div>
+                    <p class="timeline-eyebrow">See the time relationship</p>
+                    <h3 id="timelineTitle">Visual Timeline</h3>
+                </div>
+                <span class="timeline-range">Past <span aria-hidden="true">→</span> Now <span aria-hidden="true">→</span> Future</span>
+            </div>
+            <div id="timelineVisualization" class="timeline-visualization" role="img" aria-live="polite"></div>
+            <p id="timelineDescription" class="timeline-description"></p>
         </section>
 
         <section class="detail-grid">

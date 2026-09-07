@@ -2,6 +2,11 @@ const TENSE_DATA = {
     'simple-present': {
         title: 'Simple Present',
         tag: 'Present',
+        timeline: {
+            type: 'repeated',
+            label: 'Repeated actions / habits',
+            description: 'The action happens regularly around the present.'
+        },
         intro: 'Use the simple present for habits, routines, facts and general truths.',
         usageEn: 'We use the simple present to describe regular actions, facts, schedules, and things that are always true.',
         usageTr: 'Bu zaman, düzenli alışkanlıkları, genel gerçekleri, programları ve her zaman doğru olan durumları anlatmak için kullanılır.',
@@ -29,6 +34,11 @@ const TENSE_DATA = {
     'present-continuous': {
         title: 'Present Continuous',
         tag: 'Present',
+        timeline: {
+            type: 'ongoing-now',
+            label: 'Action happening now',
+            description: 'The action is in progress at this moment.'
+        },
         intro: 'Use the present continuous for actions happening now or around now.',
         usageEn: 'We use it for temporary actions, current situations, and plans arranged for the near future.',
         usageTr: 'Bu zaman, şu anda devam eden eylemler, geçici durumlar ve yakın gelecekte planlanmış olaylar için kullanılır.',
@@ -56,6 +66,11 @@ const TENSE_DATA = {
     'present-perfect': {
         title: 'Present Perfect',
         tag: 'Present',
+        timeline: {
+            type: 'past-to-now',
+            label: 'Past action connected to now',
+            description: 'A past action has a result or connection in the present.'
+        },
         intro: 'Use the present perfect to connect the past to the present.',
         usageEn: 'We use it for experiences, unfinished time periods, and actions that happened at an unknown time before now.',
         usageTr: 'Bu zaman, geçmişte yaşanmış deneyimleri, henüz bitmemiş zaman dilimlerini ve şu ana kadar olan bir zaman aralığında gerçekleşmiş olayları anlatmak için kullanılır.',
@@ -83,6 +98,11 @@ const TENSE_DATA = {
     'present-perfect-continuous': {
         title: 'Present Perfect Continuous',
         tag: 'Present',
+        timeline: {
+            type: 'duration-to-now',
+            label: 'Started in the past and continues now',
+            description: 'The action began in the past and has continued until now.'
+        },
         intro: 'Use this tense to show an action that started in the past and is still continuing.',
         usageEn: 'We use it to emphasize duration, repetition, or the cause of a present result.',
         usageTr: 'Bu zaman, geçmişte başlayan ve hâlâ devam eden bir eylemi ve süresini vurgulamak için kullanılır.',
@@ -110,6 +130,11 @@ const TENSE_DATA = {
     'simple-past': {
         title: 'Simple Past',
         tag: 'Past',
+        timeline: {
+            type: 'past-point',
+            label: 'Finished action',
+            description: 'The action happened and ended at a point in the past.'
+        },
         intro: 'Use the simple past for finished actions in the past.',
         usageEn: 'We use it for completed actions, past routines, and situations that ended in the past.',
         usageTr: 'Bu zaman, geçmişte tamamlanmış olayları, geçmişteki alışkanlıkları ve sona ermiş durumları anlatmak için kullanılır.',
@@ -136,6 +161,11 @@ const TENSE_DATA = {
     'past-continuous': {
         title: 'Past Continuous',
         tag: 'Past',
+        timeline: {
+            type: 'past-ongoing',
+            label: 'Action in progress in the past',
+            description: 'The action was continuing around a particular past moment.'
+        },
         intro: 'Use the past continuous for actions that were happening at a specific moment in the past.',
         usageEn: 'We use it when an action was in progress and another action interrupted it.',
         usageTr: 'Bu zaman, geçmişte bir anda devam eden bir eylemi anlatır; çoğu zaman başka bir eylem tarafından kesildiği durumlarda kullanılır.',
@@ -162,6 +192,11 @@ const TENSE_DATA = {
     'past-perfect': {
         title: 'Past Perfect',
         tag: 'Past',
+        timeline: {
+            type: 'before-past-event',
+            label: 'Before another past event',
+            description: 'One past action happened earlier than another past event.'
+        },
         intro: 'Use the past perfect to show that one past action happened before another past action.',
         usageEn: 'We use it to explain sequence in the past and show clear cause and effect.',
         usageTr: 'Bu zaman, geçmişte iki olay arasında öncelik ilişkisi kurmak ve neden-sonuç ilişkisini net göstermek için kullanılır.',
@@ -188,6 +223,11 @@ const TENSE_DATA = {
     'past-perfect-continuous': {
         title: 'Past Perfect Continuous',
         tag: 'Past',
+        timeline: {
+            type: 'duration-before-past',
+            label: 'Duration before another past event',
+            description: 'The action continued for a period before another past event.'
+        },
         intro: 'Use this tense to show a past action that had been continuing before another past event.',
         usageEn: 'We use it to emphasize the duration of an action before another point in the past.',
         usageTr: 'Bu zaman, geçmişte başka bir olaydan önce belirli bir süre devam eden eylemleri vurgulamak için kullanılır.',
@@ -214,6 +254,11 @@ const TENSE_DATA = {
     'simple-future': {
         title: 'Simple Future',
         tag: 'Future',
+        timeline: {
+            type: 'future-point',
+            label: 'Future action',
+            description: 'The action takes place after the present moment.'
+        },
         intro: 'Use the simple future for decisions, promises, predictions, and future facts.',
         usageEn: 'We use it to talk about future plans, predictions and spontaneous decisions.',
         usageTr: 'Bu zaman, gelecek planlarını, tahminleri ve ani kararları anlatmak için kullanılır.',
@@ -240,6 +285,11 @@ const TENSE_DATA = {
     'future-continuous': {
         title: 'Future Continuous',
         tag: 'Future',
+        timeline: {
+            type: 'future-ongoing',
+            label: 'Action in progress in the future',
+            description: 'The action will be continuing around a specific future moment.'
+        },
         intro: 'Use the future continuous to describe an action that will be in progress at a specific time in the future.',
         usageEn: 'We use it for plans, arrangements, and actions that will be happening at a future moment.',
         usageTr: 'Bu zaman, belirli bir gelecekte bir anda devam edecek eylemleri anlatmak için kullanılır.',
@@ -266,6 +316,11 @@ const TENSE_DATA = {
     'future-perfect': {
         title: 'Future Perfect',
         tag: 'Future',
+        timeline: {
+            type: 'before-future-point',
+            label: 'Completed before a future point',
+            description: 'The action will be complete before a later future moment.'
+        },
         intro: 'Use the future perfect to show that an action will be complete before a certain future time.',
         usageEn: 'We use it to talk about completed actions by a future point.',
         usageTr: 'Bu zaman, belirli bir gelecekte bir olayın tamamlanmış olacağını anlatmak için kullanılır.',
@@ -292,6 +347,11 @@ const TENSE_DATA = {
     'future-perfect-continuous': {
         title: 'Future Perfect Continuous',
         tag: 'Future',
+        timeline: {
+            type: 'duration-to-future',
+            label: 'Duration until a future point',
+            description: 'The action will continue for a duration up to a future moment.'
+        },
         intro: 'Use this tense to show how long an action will have been happening by a future point.',
         usageEn: 'We use it to emphasize duration before another time in the future.',
         usageTr: 'Bu zaman, gelecekte başka bir zamana kadar belirli bir süre devam eden eylemleri vurgulamak için kullanılır.',
@@ -317,11 +377,147 @@ const TENSE_DATA = {
     }
 };
 
+const PROGRESS_STORAGE_KEY = 'englishTensesCompleted';
+
+const loadCompletedTenses = () => {
+
+    try {
+
+        const savedTenses = JSON.parse(localStorage.getItem(PROGRESS_STORAGE_KEY) || '[]');
+
+        if (!Array.isArray(savedTenses)) return new Set();
+
+        return new Set(savedTenses.filter((tenseKey) => Object.prototype.hasOwnProperty.call(TENSE_DATA, tenseKey)));
+
+    } catch (error) {
+
+        return new Set();
+
+    }
+
+};
+
+const saveCompletedTenses = (completedTenses) => {
+
+    localStorage.setItem(PROGRESS_STORAGE_KEY, JSON.stringify([...completedTenses]));
+
+};
+
+const isTenseCompleted = (tenseKey, completedTenses = loadCompletedTenses()) => completedTenses.has(tenseKey);
+
+const setupTenseCategories = () => {
+
+    const categoryNames = new Set();
+
+    document.querySelectorAll('.tense-card').forEach((card) => {
+
+        const category = card.dataset.tag?.trim().toLowerCase();
+
+        if (!category) return;
+
+        card.classList.add(`category-${category}`);
+
+        if (categoryNames.has(category)) return;
+
+        const categoryHeading = document.createElement('div');
+        categoryHeading.className = `category-heading category-${category}`;
+        categoryHeading.innerHTML = `
+            <span class="category-kicker">${card.dataset.tag}</span>
+            <span class="category-title">${card.dataset.tag} Tenses</span>
+        `;
+
+        card.before(categoryHeading);
+        categoryNames.add(category);
+
+    });
+
+};
+
+const renderTenseTimeline = (tense) => {
+
+    const timeline = tense.timeline;
+    const visualization = document.getElementById('timelineVisualization');
+    const description = document.getElementById('timelineDescription');
+    const detailPage = document.querySelector('.detail-page');
+
+    if (!timeline || !visualization) return;
+
+    const category = tense.tag.toLowerCase();
+    detailPage?.classList.add(`category-${category}`);
+    visualization.className = `timeline-visualization timeline-${timeline.type}`;
+    visualization.setAttribute('aria-label', `${timeline.label}. ${timeline.description}`);
+    visualization.innerHTML = `
+        <div class="timeline-axis" aria-hidden="true">
+            <span class="timeline-axis-label timeline-axis-past">Past</span>
+            <span class="timeline-axis-label timeline-axis-now">Now</span>
+            <span class="timeline-axis-label timeline-axis-future">Future</span>
+            <div class="timeline-line"></div>
+            <div class="timeline-now-line"></div>
+            <div class="timeline-duration"></div>
+            <div class="timeline-event timeline-event-one"><span></span></div>
+            <div class="timeline-event timeline-event-two"><span></span></div>
+            <div class="timeline-arrow" aria-hidden="true">→</div>
+        </div>
+        <div class="timeline-key">
+            <span class="timeline-key-symbol" aria-hidden="true">●</span>
+            <span>${timeline.label}</span>
+        </div>
+    `;
+
+    if (description) description.textContent = timeline.description;
+
+};
+
+const updateProgressUI = (completedTenses = loadCompletedTenses()) => {
+
+    const tenseKeys = Object.keys(TENSE_DATA);
+    const completedCount = tenseKeys.filter((tenseKey) => completedTenses.has(tenseKey)).length;
+    const percentage = tenseKeys.length ? Math.round((completedCount / tenseKeys.length) * 100) : 0;
+    const countElement = document.getElementById('completedCount');
+    const percentageElement = document.getElementById('completedPercentage');
+    const progressFill = document.getElementById('progressFill');
+    const progressTrack = document.querySelector('.progress-track');
+
+    if (countElement) countElement.textContent = `${completedCount} / ${tenseKeys.length}`;
+    if (percentageElement) percentageElement.textContent = `${percentage}% Complete`;
+    if (progressFill) progressFill.style.width = `${percentage}%`;
+    if (progressTrack) progressTrack.setAttribute('aria-valuenow', percentage);
+
+    document.querySelectorAll('.tense-card').forEach((card) => {
+
+        const completed = isTenseCompleted(card.dataset.tense, completedTenses);
+        card.classList.toggle('is-completed', completed);
+
+        let badge = card.querySelector('.completion-badge');
+
+        if (completed && !badge) {
+
+            badge = document.createElement('span');
+            badge.className = 'completion-badge';
+            badge.setAttribute('aria-label', 'Completed');
+            badge.textContent = '✓';
+            card.appendChild(badge);
+
+        } else if (!completed && badge) {
+
+            badge.remove();
+
+        }
+
+    });
+
+};
+
 document.addEventListener('DOMContentLoaded', () => {
+
+    let completedTenses = loadCompletedTenses();
+
+    setupTenseCategories();
+    updateProgressUI(completedTenses);
 
     const heroButton = document.getElementById('startButton');
     const cardButtons = document.querySelectorAll('.card button');
-    const ctaButtons = document.querySelectorAll('.btn-primary, .btn-secondary');
+    const ctaButtons = document.querySelectorAll('.cta-buttons .btn-primary, .cta-buttons .btn-secondary');
 
     const scrollToSection = (targetId) => {
 
@@ -428,12 +624,64 @@ document.addEventListener('DOMContentLoaded', () => {
 
     });
 
+    const completionButton = document.getElementById('completionButton');
+    const detailParams = new URLSearchParams(window.location.search);
+    const detailTenseKey = detailParams.get('tense') || 'simple-present';
+
+    const updateCompletionButton = () => {
+
+        if (!completionButton) return;
+
+        const completed = isTenseCompleted(detailTenseKey, completedTenses);
+        completionButton.classList.toggle('is-completed', completed);
+        completionButton.setAttribute('aria-pressed', String(completed));
+        completionButton.textContent = completed ? '✓ Completed' : 'Mark as Completed';
+
+    };
+
+    updateCompletionButton();
+
+    if (completionButton) {
+
+        completionButton.addEventListener('click', () => {
+
+            const completed = isTenseCompleted(detailTenseKey, completedTenses);
+
+            if (completed) {
+
+                completedTenses.delete(detailTenseKey);
+
+            } else if (Object.prototype.hasOwnProperty.call(TENSE_DATA, detailTenseKey)) {
+
+                completedTenses.add(detailTenseKey);
+
+            }
+
+            saveCompletedTenses(completedTenses);
+            updateCompletionButton();
+            updateProgressUI(completedTenses);
+
+        });
+
+    }
+
+    window.addEventListener('storage', (event) => {
+
+        if (event.key === PROGRESS_STORAGE_KEY) {
+
+            completedTenses = loadCompletedTenses();
+            updateCompletionButton();
+            updateProgressUI(completedTenses);
+
+        }
+
+    });
+
     const detailPage = document.querySelector('.detail-page');
 
     if (detailPage) {
 
-        const params = new URLSearchParams(window.location.search);
-        const tenseKey = params.get('tense') || 'simple-present';
+        const tenseKey = detailTenseKey;
         const tense = TENSE_DATA[tenseKey] || TENSE_DATA['simple-present'];
 
         const detailTag = document.getElementById('detailTag');
@@ -449,6 +697,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (detailTag) detailTag.textContent = tense.tag;
         if (detailTitle) detailTitle.textContent = tense.title;
         if (detailIntro) detailIntro.textContent = tense.intro;
+        renderTenseTimeline(tense);
         if (structureBody) {
 
             structureBody.innerHTML = tense.structure.map((item) => `
