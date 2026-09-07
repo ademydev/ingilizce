@@ -585,6 +585,217 @@ const restartConceptAnimation = () => {
 
 };
 
+const normalizeSearchText = (value) => String(value || '')
+    .toLocaleLowerCase('tr-TR')
+    .replace(/ı/g, 'i')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '');
+
+const getTenseSearchText = (tense) => [
+    tense.title,
+    tense.tag,
+    tense.intro,
+    tense.usageEn,
+    tense.usageTr,
+    tense.tipEn,
+    tense.tipTr,
+    ...(tense.structure || []).flatMap((item) => [item.label, item.text]),
+    ...(tense.examples || []).flatMap((item) => [item.en, item.tr]),
+    tense.timeline?.label,
+    tense.timeline?.description,
+    tense.animation?.label,
+    tense.animation?.description
+].filter(Boolean).join(' ');
+
+const scoreTenseSearchResult = (tense, query) => {
+
+    const normalizedQuery = normalizeSearchText(query).trim();
+
+    if (!normalizedQuery) return 0;
+
+    const normalizedTitle = normalizeSearchText(tense.title);
+    const normalizedTag = normalizeSearchText(tense.tag);
+    const normalizedContent = normalizeSearchText(getTenseSearchText(tense));
+    const queryTerms = normalizedQuery.split(/\s+/).filter(Boolean);
+    let score = 0;
+
+    if (normalizedTitle === normalizedQuery) score += 1000;
+    if (normalizedTitle.includes(normalizedQuery)) score += 500;
+    if (normalizedTag === normalizedQuery) score += 300;
+    if (normalizedTag.includes(normalizedQuery)) score += 200;
+
+    queryTerms.forEach((term) => {
+
+        if (normalizedTitle.includes(term)) score += 120;
+        if (normalizedTag.includes(term)) score += 80;
+        if (normalizedContent.includes(term)) score += 20;
+
+    });
+
+    return score;
+
+};
+
+const escapeSearchHtml = (value) => String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+
+const highlightSearchText = (value, query) => {
+
+    const terms = query.trim().split(/\s+/).filter(Boolean).sort((a, b) => b.length - a.length);
+    const escapedValue = escapeSearchHtml(value);
+
+    if (!terms.length) return escapedValue;
+
+    const pattern = terms.map((term) => term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|');
+
+    return escapedValue.replace(new RegExp(`(${pattern})`, 'gi'), '<mark>$1</mark>');
+
+};
+
+const setupTenseSearch = (tenseCards) => {
+
+    const searchInput = document.getElementById('tenseSearch');
+    const clearButton = document.getElementById('searchClear');
+    const searchStatus = document.getElementById('searchStatus');
+    const searchEmpty = document.getElementById('searchEmpty');
+    const searchSuggestions = document.getElementById('searchSuggestions');
+    const tenseGrid = document.getElementById('tenseGrid');
+
+    if (!searchInput || !tenseGrid) return;
+
+    const entries = [...tenseCards].map((card, index) => {
+
+        const tense = TENSE_DATA[card.dataset.tense];
+
+        card.querySelectorAll('.tag, h4, p').forEach((element) => {
+
+            element.dataset.searchText = element.textContent;
+
+        });
+
+        return { card, tense, index };
+
+    }).filter((entry) => entry.tense);
+
+    const updateHighlights = (card, query) => {
+
+        card.querySelectorAll('[data-search-text]').forEach((element) => {
+
+            const originalText = element.dataset.searchText;
+            element.innerHTML = query ? highlightSearchText(originalText, query) : escapeSearchHtml(originalText);
+
+        });
+
+    };
+
+    const updateSearchResults = () => {
+
+        const query = searchInput.value.trim();
+        const isSearching = Boolean(query);
+        const rankedMatches = entries
+            .map((entry) => ({ ...entry, score: scoreTenseSearchResult(entry.tense, query) }))
+            .filter((entry) => entry.score > 0)
+            .sort((first, second) => second.score - first.score || first.index - second.index);
+        const matchingKeys = new Set(rankedMatches.map((entry) => entry.card.dataset.tense));
+
+        tenseGrid.classList.toggle('is-searching', isSearching);
+        tenseGrid.querySelectorAll('.category-heading').forEach((heading) => {
+
+            heading.hidden = isSearching;
+
+        });
+
+        entries.forEach(({ card }) => {
+
+            card.classList.toggle('search-hidden', isSearching && !matchingKeys.has(card.dataset.tense));
+            updateHighlights(card, isSearching ? query : '');
+
+        });
+
+        clearButton.hidden = !isSearching;
+        searchStatus.hidden = !isSearching;
+        searchEmpty.hidden = !isSearching || rankedMatches.length > 0;
+        searchSuggestions.hidden = isSearching || document.activeElement !== searchInput;
+
+        if (isSearching) {
+
+            searchStatus.textContent = `${rankedMatches.length} result${rankedMatches.length === 1 ? '' : 's'} found for "${query}"`;
+
+        } else {
+
+            searchStatus.textContent = '';
+
+        }
+
+    };
+
+    searchInput.addEventListener('input', updateSearchResults);
+
+    searchInput.addEventListener('focus', updateSearchResults);
+
+    searchInput.addEventListener('blur', () => {
+
+        window.setTimeout(() => {
+
+            searchSuggestions.hidden = true;
+
+        }, 120);
+
+    });
+
+    clearButton?.addEventListener('click', () => {
+
+        searchInput.value = '';
+        updateSearchResults();
+        searchInput.focus();
+
+    });
+
+    searchSuggestions?.querySelectorAll('[data-search-suggestion]').forEach((suggestion) => {
+
+        suggestion.addEventListener('click', () => {
+
+            searchInput.value = suggestion.dataset.searchSuggestion;
+            updateSearchResults();
+            searchInput.focus();
+
+        });
+
+    });
+
+    document.addEventListener('keydown', (event) => {
+
+        if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') {
+
+            event.preventDefault();
+            searchInput.focus();
+            searchInput.select();
+
+        }
+
+        if (event.key === 'Escape' && document.activeElement === searchInput) {
+
+            if (searchInput.value) {
+
+                searchInput.value = '';
+                updateSearchResults();
+
+            } else {
+
+                searchInput.blur();
+
+            }
+
+        }
+
+    });
+
+};
+
 const updateProgressUI = (completedTenses = loadCompletedTenses()) => {
 
     const tenseKeys = Object.keys(TENSE_DATA);
@@ -740,6 +951,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
     });
+
+    setupTenseSearch(tenseCards);
 
     const completionButton = document.getElementById('completionButton');
     const detailParams = new URLSearchParams(window.location.search);

@@ -260,7 +260,67 @@
 
         </section>
 
-        <div class="tense-grid">
+        <section class="search-panel" aria-labelledby="searchTitle">
+
+            <div class="search-heading">
+
+                <div>
+
+                    <p class="search-eyebrow">Find your next lesson</p>
+
+                    <h3 id="searchTitle">Search the tense academy</h3>
+
+                </div>
+
+                <span class="search-hint">Search by tense, concept, or example</span>
+
+            </div>
+
+            <div class="search-field">
+
+                <span class="search-icon" aria-hidden="true">⌕</span>
+
+                <label class="sr-only" for="tenseSearch">Search tenses, structures, and examples</label>
+
+                <input id="tenseSearch" type="search" autocomplete="off" spellcheck="false"
+                    placeholder="Search tenses, structures, examples..." aria-controls="tenseGrid"
+                    aria-describedby="searchStatus">
+
+                <kbd class="search-shortcut" id="searchShortcut">⌘ K</kbd>
+
+                <button type="button" class="search-clear" id="searchClear" aria-label="Clear search" hidden>
+                    <span aria-hidden="true">×</span>
+                </button>
+
+            </div>
+
+            <div class="search-suggestions" id="searchSuggestions" aria-label="Search suggestions" hidden>
+
+                <span>Try searching</span>
+
+                <button type="button" data-search-suggestion="Present">Present</button>
+                <button type="button" data-search-suggestion="Past">Past</button>
+                <button type="button" data-search-suggestion="Future">Future</button>
+                <button type="button" data-search-suggestion="Perfect">Perfect</button>
+                <button type="button" data-search-suggestion="Continuous">Continuous</button>
+
+            </div>
+
+            <p class="search-status" id="searchStatus" aria-live="polite" hidden></p>
+
+            <div class="search-empty" id="searchEmpty" hidden>
+
+                <span class="search-empty-icon" aria-hidden="true">⌕</span>
+
+                <strong>No matching tenses found</strong>
+
+                <span>Try Present, Past, Future, Perfect, or Continuous.</span>
+
+            </div>
+
+        </section>
+
+        <div class="tense-grid" id="tenseGrid">
 
             <div class="tense-card" data-tense="simple-present" data-title="Simple Present" data-tag="Present" data-intro="Use the simple present for habits, routines, facts and general truths." data-usage="We use the simple present to describe regular actions, facts, schedules, and things that are always true." data-tip="Remember: for he, she, and it, add -s or -es to the main verb." data-structure="I / You / We / They + V1<br>He / She / It + V1 + s/es" data-examples="I drink coffee every morning.<br>She watches TV in the evening.<br>They play football on Sundays.">
 
