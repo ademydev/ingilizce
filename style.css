@@ -1972,6 +1972,18 @@ footer{
 
     }
 
+    .features{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .feature-list{
+
+        grid-template-columns:repeat(2,minmax(0,1fr));
+
+    }
+
     .hero h2{
 
         font-size:48px;
@@ -2011,10 +2023,56 @@ footer{
 
     }
 
+    .features{
+
+        gap:16px;
+
+    }
+
+    .features-header h3{
+
+        font-size:27px;
+
+        line-height:1.25;
+
+    }
+
+    .features-header p{
+
+        font-size:14px;
+
+        line-height:1.7;
+
+    }
+
+    .feature-list{
+
+        grid-template-columns:1fr;
+
+        gap:18px;
+
+    }
+
     .card,
     .feature{
 
-        padding:24px 20px;
+        min-height:0;
+
+        padding:22px 18px;
+
+    }
+
+    .feature h3{
+
+        font-size:19px;
+
+    }
+
+    .feature p{
+
+        font-size:14px;
+
+        line-height:1.7;
 
     }
 
