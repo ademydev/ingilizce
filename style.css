@@ -415,23 +415,17 @@ nav a:hover::after{
 
     --card-accent:rgba(67,203,143,.9);
 
-    --card-position:50%;
-
 }
 
 .card-past{
 
     --card-accent:rgba(255,171,85,.9);
 
-    --card-position:26%;
-
 }
 
 .card-future{
 
     --card-accent:rgba(88,170,255,.9);
-
-    --card-position:74%;
 
 }
 
@@ -507,6 +501,12 @@ nav a:hover::after{
 
 .card-timeline{
 
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    grid-template-rows:9px auto;
+
     margin:10px 0 22px;
 
     position:relative;
@@ -523,7 +523,11 @@ nav a:hover::after{
 
 .card-timeline-line{
 
-    display:block;
+    grid-column:1 / -1;
+
+    grid-row:1;
+
+    align-self:center;
 
     height:1px;
 
@@ -533,11 +537,9 @@ nav a:hover::after{
 
 .card-timeline-point{
 
-    position:absolute;
+    grid-row:1;
 
-    top:3px;
-
-    left:var(--card-position);
+    justify-self:center;
 
     width:9px;
 
@@ -549,15 +551,37 @@ nav a:hover::after{
 
     background:var(--card);
 
-    transform:translateX(-50%);
+}
+
+.card-present .card-timeline-point{
+
+    grid-column:2;
+
+}
+
+.card-past .card-timeline-point{
+
+    grid-column:1;
+
+}
+
+.card-future .card-timeline-point{
+
+    grid-column:3;
 
 }
 
 .card-timeline-labels{
 
-    display:flex;
+    grid-column:1 / -1;
 
-    justify-content:space-between;
+    grid-row:2;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    text-align:center;
 
     margin-top:8px;
 

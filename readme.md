@@ -1,4 +1,4 @@
-# English Tenses Academy
+# English Tenses 
 
 > An interactive and visually rich platform designed to make English tenses easier to understand.
 
