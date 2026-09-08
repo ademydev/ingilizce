@@ -7,11 +7,6 @@ const TENSE_DATA = {
             label: 'Repeated actions / habits',
             description: 'The action happens regularly around the present.'
         },
-        animation: {
-            type: 'habit-loop',
-            label: 'Repeated habit',
-            description: 'A calm repeating rhythm shows an action that happens regularly.'
-        },
         intro: 'Use the simple present for habits, routines, facts and general truths.',
         usageEn: 'We use the simple present to describe regular actions, facts, schedules, and things that are always true.',
         usageTr: 'Bu zaman, düzenli alışkanlıkları, genel gerçekleri, programları ve her zaman doğru olan durumları anlatmak için kullanılır.',
@@ -43,11 +38,6 @@ const TENSE_DATA = {
             type: 'ongoing-now',
             label: 'Action happening now',
             description: 'The action is in progress at this moment.'
-        },
-        animation: {
-            type: 'active-now',
-            label: 'Happening right now',
-            description: 'The moving pulse stays active to show an action in progress.'
         },
         intro: 'Use the present continuous for actions happening now or around now.',
         usageEn: 'We use it for temporary actions, current situations, and plans arranged for the near future.',
@@ -81,11 +71,6 @@ const TENSE_DATA = {
             label: 'Past action connected to now',
             description: 'A past action has a result or connection in the present.'
         },
-        animation: {
-            type: 'past-result',
-            label: 'Past action, present result',
-            description: 'A completed action sends a visible connection toward its present result.'
-        },
         intro: 'Use the present perfect to connect the past to the present.',
         usageEn: 'We use it for experiences, unfinished time periods, and actions that happened at an unknown time before now.',
         usageTr: 'Bu zaman, geçmişte yaşanmış deneyimleri, henüz bitmemiş zaman dilimlerini ve şu ana kadar olan bir zaman aralığında gerçekleşmiş olayları anlatmak için kullanılır.',
@@ -117,11 +102,6 @@ const TENSE_DATA = {
             type: 'duration-to-now',
             label: 'Started in the past and continues now',
             description: 'The action began in the past and has continued until now.'
-        },
-        animation: {
-            type: 'flow-to-now',
-            label: 'Still continuing',
-            description: 'A flowing duration starts earlier and remains connected to now.'
         },
         intro: 'Use this tense to show an action that started in the past and is still continuing.',
         usageEn: 'We use it to emphasize duration, repetition, or the cause of a present result.',
@@ -155,11 +135,6 @@ const TENSE_DATA = {
             label: 'Finished action',
             description: 'The action happened and ended at a point in the past.'
         },
-        animation: {
-            type: 'finished-action',
-            label: 'Finished action',
-            description: 'The small sequence plays once and settles into a completed state.'
-        },
         intro: 'Use the simple past for finished actions in the past.',
         usageEn: 'We use it for completed actions, past routines, and situations that ended in the past.',
         usageTr: 'Bu zaman, geçmişte tamamlanmış olayları, geçmişteki alışkanlıkları ve sona ermiş durumları anlatmak için kullanılır.',
@@ -190,11 +165,6 @@ const TENSE_DATA = {
             type: 'past-ongoing',
             label: 'Action in progress in the past',
             description: 'The action was continuing around a particular past moment.'
-        },
-        animation: {
-            type: 'past-activity',
-            label: 'In progress at a past moment',
-            description: 'The activity keeps moving inside a softly marked past context.'
         },
         intro: 'Use the past continuous for actions that were happening at a specific moment in the past.',
         usageEn: 'We use it when an action was in progress and another action interrupted it.',
@@ -227,11 +197,6 @@ const TENSE_DATA = {
             label: 'Before another past event',
             description: 'One past action happened earlier than another past event.'
         },
-        animation: {
-            type: 'past-sequence',
-            label: 'First this, then that',
-            description: 'Two past events appear in order to show which happened first.'
-        },
         intro: 'Use the past perfect to show that one past action happened before another past action.',
         usageEn: 'We use it to explain sequence in the past and show clear cause and effect.',
         usageTr: 'Bu zaman, geçmişte iki olay arasında öncelik ilişkisi kurmak ve neden-sonuç ilişkisini net göstermek için kullanılır.',
@@ -262,11 +227,6 @@ const TENSE_DATA = {
             type: 'duration-before-past',
             label: 'Duration before another past event',
             description: 'The action continued for a period before another past event.'
-        },
-        animation: {
-            type: 'past-duration',
-            label: 'Continuing before another event',
-            description: 'A moving duration runs before a second past event appears.'
         },
         intro: 'Use this tense to show a past action that had been continuing before another past event.',
         usageEn: 'We use it to emphasize the duration of an action before another point in the past.',
@@ -299,11 +259,6 @@ const TENSE_DATA = {
             label: 'Future action',
             description: 'The action takes place after the present moment.'
         },
-        animation: {
-            type: 'forward-action',
-            label: 'Future action',
-            description: 'A glowing marker travels forward toward an upcoming point.'
-        },
         intro: 'Use the simple future for decisions, promises, predictions, and future facts.',
         usageEn: 'We use it to talk about future plans, predictions and spontaneous decisions.',
         usageTr: 'Bu zaman, gelecek planlarını, tahminleri ve ani kararları anlatmak için kullanılır.',
@@ -334,11 +289,6 @@ const TENSE_DATA = {
             type: 'future-ongoing',
             label: 'Action in progress in the future',
             description: 'The action will be continuing around a specific future moment.'
-        },
-        animation: {
-            type: 'future-activity',
-            label: 'In progress at a future moment',
-            description: 'The future checkpoint arrives while the activity is still moving.'
         },
         intro: 'Use the future continuous to describe an action that will be in progress at a specific time in the future.',
         usageEn: 'We use it for plans, arrangements, and actions that will be happening at a future moment.',
@@ -371,11 +321,6 @@ const TENSE_DATA = {
             label: 'Completed before a future point',
             description: 'The action will be complete before a later future moment.'
         },
-        animation: {
-            type: 'future-completion',
-            label: 'Finished before the checkpoint',
-            description: 'The action completes first, then the future checkpoint appears.'
-        },
         intro: 'Use the future perfect to show that an action will be complete before a certain future time.',
         usageEn: 'We use it to talk about completed actions by a future point.',
         usageTr: 'Bu zaman, belirli bir gelecekte bir olayın tamamlanmış olacağını anlatmak için kullanılır.',
@@ -407,11 +352,6 @@ const TENSE_DATA = {
             label: 'Duration until a future point',
             description: 'The action will continue for a duration up to a future moment.'
         },
-        animation: {
-            type: 'future-duration',
-            label: 'Continuing until the checkpoint',
-            description: 'A visible duration carries the activity forward to a future point.'
-        },
         intro: 'Use this tense to show how long an action will have been happening by a future point.',
         usageEn: 'We use it to emphasize duration before another time in the future.',
         usageTr: 'Bu zaman, gelecekte başka bir zamana kadar belirli bir süre devam eden eylemleri vurgulamak için kullanılır.',
@@ -435,6 +375,20 @@ const TENSE_DATA = {
             { en: 'We will not have been resting.', tr: 'Dinlenmiyor olacağız.' }
         ]
     }
+};
+const TIMELINE_SEMANTICS = {
+    repeated: { kind: 'repeated', points: [15, 32, 49, 66, 83] },
+    'ongoing-now': { kind: 'duration', start: 40, end: 60 },
+    'past-to-now': { kind: 'connection', start: 28, end: 50, points: [28, 50] },
+    'duration-to-now': { kind: 'duration', start: 15, end: 50, points: [15, 50] },
+    'past-point': { kind: 'point', points: [30] },
+    'past-ongoing': { kind: 'duration', start: 15, end: 40, points: [40], reference: 40 },
+    'before-past-event': { kind: 'connection', start: 25, end: 40, points: [25, 40] },
+    'duration-before-past': { kind: 'duration', start: 15, end: 40, points: [15, 40] },
+    'future-point': { kind: 'point', points: [70] },
+    'future-ongoing': { kind: 'duration', start: 60, end: 85, points: [75], reference: 75 },
+    'before-future-point': { kind: 'connection', start: 65, end: 80, points: [65, 80] },
+    'duration-to-future': { kind: 'duration', start: 50, end: 85, points: [50, 85] }
 };
 
 const PROGRESS_STORAGE_KEY = 'englishTensesCompleted';
@@ -493,6 +447,33 @@ const setupTenseCategories = () => {
 
 };
 
+const renderTimelineDiagram = (visualization, semantic, label) => {
+
+    const pointMarkup = (semantic.points || []).map((position) =>
+        `<span class="semantic-point" style="--point-position:${position}%"></span>`
+    ).join('');
+    const repeatedMarkup = semantic.kind === 'repeated' ? pointMarkup : '';
+    const points = semantic.kind === 'repeated' ? '' : pointMarkup;
+    const durationMarkup = semantic.start !== undefined
+        ? `<span class="semantic-duration" style="--duration-start:${semantic.start}%;--duration-end:${semantic.end}%"></span>`
+        : '';
+    const referenceMarkup = semantic.reference !== undefined
+        ? `<span class="semantic-reference" style="--reference-position:${semantic.reference}%"></span>`
+        : '';
+
+    visualization.className = `timeline-visualization diagram-${semantic.kind}`;
+    visualization.setAttribute('aria-label', label);
+    visualization.innerHTML = `
+        <div class="semantic-stage" aria-hidden="true">
+            <span class="semantic-label semantic-label-past">Past</span>
+            <span class="semantic-label semantic-label-now">Now</span>
+            <span class="semantic-label semantic-label-future">Future</span>
+            <div class="semantic-axis"></div>
+            ${durationMarkup}${referenceMarkup}${points}${repeatedMarkup}
+        </div>
+    `;
+};
+
 const renderTenseTimeline = (tense) => {
 
     const timeline = tense.timeline;
@@ -502,27 +483,10 @@ const renderTenseTimeline = (tense) => {
 
     if (!timeline || !visualization) return;
 
+    const semantic = TIMELINE_SEMANTICS[timeline.type];
     const category = tense.tag.toLowerCase();
     detailPage?.classList.add(`category-${category}`);
-    visualization.className = `timeline-visualization timeline-${timeline.type}`;
-    visualization.setAttribute('aria-label', `${timeline.label}. ${timeline.description}`);
-    visualization.innerHTML = `
-        <div class="timeline-axis" aria-hidden="true">
-            <span class="timeline-axis-label timeline-axis-past">Past</span>
-            <span class="timeline-axis-label timeline-axis-now">Now</span>
-            <span class="timeline-axis-label timeline-axis-future">Future</span>
-            <div class="timeline-line"></div>
-            <div class="timeline-now-line"></div>
-            <div class="timeline-duration"></div>
-            <div class="timeline-event timeline-event-one"><span></span></div>
-            <div class="timeline-event timeline-event-two"><span></span></div>
-            <div class="timeline-arrow" aria-hidden="true">→</div>
-        </div>
-        <div class="timeline-key">
-            <span class="timeline-key-symbol" aria-hidden="true">●</span>
-            <span>${timeline.label}</span>
-        </div>
-    `;
+    renderTimelineDiagram(visualization, semantic, `${timeline.label}. ${timeline.description}`);
 
     if (description) description.textContent = timeline.description;
 
@@ -612,63 +576,6 @@ const renderExamples = (tense) => (tense.examples || []).map((item, index) => {
 `.trim();
 }).join('');
 
-const renderConceptAnimation = (tense) => {
-
-    const animation = tense.animation;
-    const visualization = document.getElementById('conceptAnimation');
-    const description = document.getElementById('conceptDescription');
-
-    if (!animation || !visualization) return;
-
-    visualization.className = `concept-animation concept-${animation.type}`;
-    visualization.setAttribute('aria-label', `${animation.label}. ${animation.description}`);
-    visualization.innerHTML = `
-        <div class="concept-stage" aria-hidden="true">
-            <span class="concept-context concept-context-past">Past</span>
-            <span class="concept-context concept-context-now">Now</span>
-            <span class="concept-context concept-context-future">Future</span>
-            <div class="concept-track"></div>
-            <div class="concept-flow"></div>
-            <div class="concept-point concept-point-one"><span></span></div>
-            <div class="concept-point concept-point-two"><span></span></div>
-            <div class="concept-object"><span></span></div>
-            <div class="concept-checkpoint"><span>✓</span></div>
-            <div class="concept-arrow">→</div>
-        </div>
-        <div class="concept-key">
-            <span class="concept-key-mark" aria-hidden="true">●</span>
-            <span>${animation.label}</span>
-        </div>
-    `;
-
-    if (description) description.textContent = animation.description;
-
-};
-
-const restartConceptAnimation = () => {
-
-    const visualization = document.getElementById('conceptAnimation');
-
-    if (!visualization) return;
-
-    const animatedElements = visualization.querySelectorAll('.concept-flow, .concept-point, .concept-object, .concept-checkpoint, .concept-arrow, .concept-track');
-
-    animatedElements.forEach((element) => {
-
-        element.style.animation = 'none';
-
-    });
-
-    void visualization.offsetWidth;
-
-    animatedElements.forEach((element) => {
-
-        element.style.removeProperty('animation');
-
-    });
-
-};
-
 const normalizeSearchText = (value) => String(value || '')
     .toLocaleLowerCase('tr-TR')
     .replace(/ı/g, 'i')
@@ -686,9 +593,7 @@ const getTenseSearchText = (tense) => [
     ...(tense.structure || []).flatMap((item) => [item.label, item.text]),
     ...(tense.examples || []).flatMap((item) => [item.en, item.tr]),
     tense.timeline?.label,
-    tense.timeline?.description,
-    tense.animation?.label,
-    tense.animation?.description
+    tense.timeline?.description
 ].filter(Boolean).join(' ');
 
 const scoreTenseSearchResult = (tense, query) => {
@@ -1114,11 +1019,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (detailTitle) detailTitle.textContent = tense.title;
         if (detailIntro) detailIntro.textContent = tense.intro;
         renderTenseTimeline(tense);
-        renderConceptAnimation(tense);
-
-        const conceptReplay = document.getElementById('conceptReplay');
-
-        if (conceptReplay) conceptReplay.addEventListener('click', restartConceptAnimation);
 
         if (structureBody) {
 
