@@ -3596,7 +3596,7 @@ footer{
 
 }
 
-.completion-button.is-completed{
+.btn-secondary.completion-button.is-completed{
 
     background:rgba(110,198,255,.16);
 
@@ -4040,8 +4040,8 @@ footer{
 
 }
 
-#journey .btn-primary,
-#journey .btn-secondary{
+.btn-primary,
+.btn-secondary{
 
     border:none;
 
@@ -4051,15 +4051,19 @@ footer{
 
     border-radius:999px;
 
+    font-family:inherit;
+
     font-weight:600;
 
     cursor:pointer;
+
+    text-decoration:none;
 
     transition:transform .3s,box-shadow .3s,background .3s,color .3s;
 
 }
 
-#journey .btn-primary{
+.btn-primary{
 
     background:linear-gradient(135deg,var(--primary),var(--secondary));
 
@@ -4069,7 +4073,7 @@ footer{
 
 }
 
-#journey .btn-secondary{
+.btn-secondary{
 
     background:rgba(255,255,255,.07);
 
@@ -4079,20 +4083,20 @@ footer{
 
 }
 
-#journey .btn-primary:hover,
-#journey .btn-secondary:hover{
+.btn-primary:hover,
+.btn-secondary:hover{
 
     transform:translateY(-3px);
 
 }
 
-#journey .btn-primary:hover{
+.btn-primary:hover{
 
     box-shadow:0 16px 32px rgba(79,140,255,.34);
 
 }
 
-#journey .btn-primary span{
+.btn-primary span{
 
     display:inline-block;
 
@@ -4102,7 +4106,7 @@ footer{
 
 }
 
-#journey .btn-primary:hover span{
+.btn-primary:hover span{
 
     transform:translateX(4px);
 
