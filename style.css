@@ -653,6 +653,14 @@ footer{
 
 }
 
+.detail-page > .detail-card + .detail-card,
+.detail-page > .detail-card + .detail-grid,
+.detail-page > .detail-grid + .detail-card{
+
+    margin-top:22px;
+
+}
+
 .detail-card{
 
     background:rgba(255,255,255,.05);
