@@ -118,19 +118,37 @@
             </section>
         </section>
 
-        <section class="detail-card detail-examples" id="examples">
-            <h3>Examples</h3>
+        <section class="detail-card learning-card examples-card detail-examples" id="examples" aria-labelledby="examplesTitle">
+            <div class="learning-card-heading">
+                <div>
+                    <p class="learning-eyebrow">Real sentence practice</p>
+                    <h3 id="examplesTitle">Examples</h3>
+                </div>
+                <span class="learning-heading-mark" aria-hidden="true">↗</span>
+            </div>
+            <p class="learning-subtitle">See how this tense works in real sentences.</p>
             <ul id="exampleList" class="example-list"></ul>
         </section>
 
-        <section class="detail-card">
-            <h3>Quick Tip</h3>
-            <div class="usage-block">
-                <h4>English</h4>
-                <p id="tipText"></p>
+        <section class="detail-card learning-card memory-card" aria-labelledby="tipTitle">
+            <div class="learning-card-heading">
+                <div>
+                    <p class="learning-eyebrow">Remember this</p>
+                    <h3 id="tipTitle">Quick Tip</h3>
+                </div>
+                <span class="learning-heading-mark" aria-hidden="true">✦</span>
             </div>
-            <div class="usage-block">
-                <h4>Türkçe</h4>
+            <p class="learning-subtitle">One focused idea to carry into your next sentence.</p>
+            <div class="memory-hook">
+                <span class="memory-hook-icon" aria-hidden="true">!</span>
+                <div>
+                    <span class="usage-label">Key takeaway</span>
+                    <p id="tipText" class="memory-hook-text"></p>
+                </div>
+            </div>
+            <div id="tipCue" class="memory-cue" aria-live="polite"></div>
+            <div class="tip-translation">
+                <span class="language-badge" aria-hidden="true">TR</span>
                 <p id="tipTextTr"></p>
             </div>
         </section>

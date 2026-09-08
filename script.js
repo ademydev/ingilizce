@@ -564,6 +564,54 @@ const renderStructure = (structure) => structure.map((item, index) => {
     `;
 }).join('');
 
+const getExamplePattern = (tense) => {
+    const patternCandidates = (tense.structure || [])
+        .map((item) => item.text)
+        .filter((text) => /V1|V2|V3|V-ing|will|have|has|had|am|is|are|was|were|do|does|did|be|been/i.test(text));
+
+    if (!patternCandidates.length) return '';
+
+    const selected = patternCandidates.find((text) => /V3|V-ing|will|have|has|had/i.test(text)) || patternCandidates[0];
+    const pieces = selected.split('+').map((piece) => piece.trim()).filter(Boolean);
+
+    if (pieces.length >= 3) {
+        return pieces.slice(-2).join(' + ');
+    }
+
+    if (pieces.length === 2) {
+        return pieces[1];
+    }
+
+    return selected.replace(/\s*\/\s*/g, ' / ').replace(/\s+/g, ' ').trim();
+};
+
+const renderExamples = (tense) => (tense.examples || []).map((item, index) => {
+    const patternText = getExamplePattern(tense);
+
+    return `
+    <li class="example-item">
+        <div class="example-meta">
+            <span class="example-number">${String(index + 1).padStart(2, '0')}</span>
+            <span class="example-label">Sentence practice</span>
+        </div>
+        <div class="example-sentence-stack">
+            <div class="example-sentence-label">English</div>
+            <div class="example-en">${escapeHtml(item.en)}</div>
+        </div>
+        ${patternText ? `
+            <div class="example-pattern" aria-label="Core tense pattern: ${escapeHtml(patternText)}">
+                <span class="example-pattern-label">Core pattern</span>
+                <span class="example-pattern-text">${escapeHtml(patternText)}</span>
+            </div>
+        ` : ''}
+        <div class="example-translation">
+            <span class="language-badge" aria-hidden="true">TR</span>
+            <div class="example-tr">${escapeHtml(item.tr)}</div>
+        </div>
+    </li>
+`.trim();
+}).join('');
+
 const renderConceptAnimation = (tense) => {
 
     const animation = tense.animation;
@@ -1060,6 +1108,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const exampleList = document.getElementById('exampleList');
         const tipText = document.getElementById('tipText');
         const tipTextTr = document.getElementById('tipTextTr');
+        const tipCue = document.getElementById('tipCue');
 
         if (detailTag) detailTag.textContent = tense.tag;
         if (detailTitle) detailTitle.textContent = tense.title;
@@ -1082,14 +1131,23 @@ document.addEventListener('DOMContentLoaded', () => {
         if (usageTextTr) usageTextTr.textContent = tense.usageTr;
         if (tipText) tipText.textContent = tense.tipEn;
         if (tipTextTr) tipTextTr.textContent = tense.tipTr;
+        if (tipCue) {
+            const cueText = tense.timeline?.label || 'Key tense idea';
+            tipCue.innerHTML = `
+                <span class="memory-cue-label">Memory cue</span>
+                <div class="memory-cue-track" aria-label="${escapeHtml(cueText)}">
+                    <span class="memory-cue-past">Past</span>
+                    <span class="memory-cue-arrow" aria-hidden="true">→</span>
+                    <span class="memory-cue-now">Now</span>
+                    <span class="memory-cue-arrow" aria-hidden="true">→</span>
+                    <span class="memory-cue-future">Future</span>
+                </div>
+                <strong class="memory-cue-value">${escapeHtml(cueText)}</strong>
+            `;
+        }
         if (exampleList) {
 
-            exampleList.innerHTML = tense.examples.map((item) => `
-                <li class="example-item">
-                    <div class="example-en">${item.en}</div>
-                    <div class="example-tr">${item.tr}</div>
-                </li>
-            `).join('');
+            exampleList.innerHTML = renderExamples(tense);
 
         }
 
